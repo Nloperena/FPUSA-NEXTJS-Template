@@ -1,0 +1,171 @@
+╔══════════════════════════════════════════════════════════════╗
+║  EXTRACT ALL FLICKR PHOTOS - STEP BY STEP GUIDE             ║
+╚══════════════════════════════════════════════════════════════╝
+
+📋 WHAT YOU NEED TO DO:
+
+For EACH of the 11 Flickr albums, follow these steps:
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 1: Open the Flickr Album                              │
+└─────────────────────────────────────────────────────────────┘
+
+Open this link in Chrome or Edge:
+https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+
+Wait for ALL photos to load (scroll down if needed)
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 2: View Page Source                                   │
+└─────────────────────────────────────────────────────────────┘
+
+Windows: Press Ctrl + U
+Mac:     Press Cmd + Option + U
+
+This opens a new tab with the HTML source code
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 3: Copy EVERYTHING                                    │
+└─────────────────────────────────────────────────────────────┘
+
+Windows: Press Ctrl + A, then Ctrl + C
+Mac:     Press Cmd + A, then Cmd + C
+
+⚠️  IMPORTANT: Make sure you copied the ENTIRE page!
+   - It should start with <!DOCTYPE html>
+   - It should end with </html>
+   - It will be VERY long (100,000+ characters)
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 4: Paste into the Script                              │
+└─────────────────────────────────────────────────────────────┘
+
+1. Open this file in your code editor:
+   FPUSA-NEXTJS-Template/scripts/paste-html-here.js
+
+2. Find this line:
+   const HTML_CONTENT = `
+   PASTE THE FULL HTML HERE
+   `;
+
+3. Replace "PASTE THE FULL HTML HERE" with your copied HTML
+
+4. Update the ALBUM_INFO:
+   const ALBUM_INFO = {
+     id: 'champions-gate-luxury',     // ← Change this
+     title: 'Champions Gate Luxury',   // ← Change this
+     location: 'Champions Gate, FL',   // ← Change this
+     category: 'highlight'             // ← 'highlight' or 'standard'
+   };
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 5: Run the Script                                     │
+└─────────────────────────────────────────────────────────────┘
+
+Open your terminal and run:
+
+cd C:\Users\nimro\Downloads\Projects\FPUSA
+node FPUSA-NEXTJS-Template/scripts/paste-html-here.js
+
+You'll see output like:
+📊 RESULTS:
+Album: Champions Gate Luxury
+Photos found: 25
+
+📸 Photo URLs:
+1. https://live.staticflickr.com/.../53675134748_abc123_b.jpg
+2. https://live.staticflickr.com/.../53675134749_def456_b.jpg
+...
+
+📋 TypeScript Object (copy this):
+{
+  "id": "champions-gate-luxury",
+  ...
+}
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 6: Copy the Output                                    │
+└─────────────────────────────────────────────────────────────┘
+
+Copy the entire TypeScript object that the script outputs
+(from the opening { to the closing })
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 7: Add to Project File                                │
+└─────────────────────────────────────────────────────────────┘
+
+1. Open: FPUSA-NEXTJS-Template/src/data/flickr-projects-full.ts
+
+2. Find the project with the same ID
+
+3. Replace it with your copied object
+
+4. Save the file
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 8: Repeat for Remaining Albums                        │
+└─────────────────────────────────────────────────────────────┘
+
+Do Steps 1-7 for each of these albums:
+
+✅ Album 1 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+   ID: champions-gate-luxury
+   
+□ Album 2 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+   ID: champions-gate-modern
+   
+□ Album 3 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720300655381
+   ID: windsor-resort
+   
+□ Album 4 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720309667386
+   ID: reunion-paradise
+   
+□ Album 5 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720313910761
+   ID: storey-lake
+   
+□ Album 6 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72157710133541282
+   ID: orlando-villa
+   
+□ Album 7 (Highlight):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720320587147
+   ID: kissimmee-estate
+   
+□ Album 8 (Standard):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72157719863774016
+   ID: vacation-home-1
+   
+□ Album 9 (Standard):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72177720303794132
+   ID: vacation-home-2
+   
+□ Album 10 (Standard):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72157711887679752
+   ID: vacation-home-3
+   
+□ Album 11 (Standard):
+   https://www.flickr.com/photos/furniturepackagesusa/albums/72157710956178362
+   ID: vacation-home-4
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  DONE! Your photos will now appear in the parallax section  ║
+╚══════════════════════════════════════════════════════════════╝
+
+The photos will automatically load in the "Our Projects" section
+with the 3D parallax effect, and clicking any project opens a
+modal gallery with all photos from that home.
+
+

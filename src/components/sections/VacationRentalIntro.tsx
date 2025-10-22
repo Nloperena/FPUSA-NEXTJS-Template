@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from 'react';
+
 export default function VacationRentalIntro() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   return (
     <section className="relative bg-white py-16 md:py-20">
       <div className="container mx-auto max-w-7xl px-4">
@@ -15,29 +21,28 @@ export default function VacationRentalIntro() {
               <span className="inline-block">Your&nbsp;Short-Term&nbsp;Rental</span>
             </h2>
 
-            <div className="relative mb-8 aspect-video overflow-hidden rounded-xl shadow-lg">
-              {/* non-blocking overlay */}
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1B3764] to-[#115B87]">
-                <div className="text-center text-white">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
-                    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-medium">Video Loading</p>
-                  <p className="mb-3 text-xs opacity-80">Click to view on YouTube</p>
-                </div>
-              </div>
-
+            <div className="relative mb-8 aspect-video overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-[#1B3764] to-[#115B87]">
               <iframe
-                className="h-full w-full transition-all duration-700 ease-out"
+                className="absolute inset-0 h-full w-full z-10"
                 src="https://www.youtube.com/embed/1_tueZ5zC3w?rel=0&modestbranding=1&showinfo=0"
                 title="Outfitting Your Vacation Rental — Before/After"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                loading="lazy"
+                onLoad={() => setVideoLoaded(true)}
               />
+              {!videoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center z-0">
+                  <div className="text-center text-white">
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
+                      <svg className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-medium">Video Loading</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="prose prose-lg max-w-none text-gray-700 prose-p:leading-relaxed">

@@ -1,0 +1,25 @@
+// Album 4 - Storey Lake (59 photos)
+{
+  "id": "storey-lake",
+  "title": "Storey Lake Retreat",
+  "location": "Kissimmee, FL",
+  "category": "highlight",
+  "albumUrl": "https://www.flickr.com/photos/furniturepackagesusa/albums/72177720313910761",
+  "coverPhoto": "https://live.staticflickr.com/65535/53452334340_d0f8aa4e5b_b.jpg",
+  "description": "Complete vacation rental transformation featuring modern design and premium finishes",
+  "photos": [ /* 59 photos - see terminal output above */ ]
+}
+
+// Album 5 - Orlando Villa (24 photos)
+{
+  "id": "orlando-villa",
+  "title": "Orlando Luxury Villa",
+  "location": "Orlando, FL",
+  "category": "highlight",
+  "albumUrl": "https://www.flickr.com/photos/furniturepackagesusa/albums/72157710133541282",
+  "coverPhoto": "https://live.staticflickr.com/65535/53035313862_1949475c97_b.jpg",
+  "description": "Complete vacation rental transformation featuring modern design and premium finishes",
+  "photos": [ /* 24 photos - see terminal output above */ ]
+}
+
+

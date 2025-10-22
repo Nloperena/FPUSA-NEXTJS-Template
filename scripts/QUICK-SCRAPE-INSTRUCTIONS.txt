@@ -1,0 +1,50 @@
+🚀 QUICK FLICKR SCRAPING INSTRUCTIONS
+=====================================
+
+STEP 1: Open This URL in Chrome/Firefox
+----------------------------------------
+https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+
+STEP 2: Open Browser Console
+-----------------------------
+Press F12 (or Cmd+Option+J on Mac)
+
+STEP 3: Copy This Script
+-------------------------
+Open: scripts/browser-scraper-simple.js
+Copy ALL the code
+
+STEP 4: Paste into Console
+---------------------------
+Paste the code and press Enter
+
+STEP 5: Copy the Output
+------------------------
+Data will be in console - copy it all
+
+STEP 6: Save to File
+---------------------
+Create: album-1.json
+Paste the copied data
+
+STEP 7: Repeat for Remaining Albums
+------------------------------------
+Do the same for these URLs:
+
+Album 2: https://www.flickr.com/photos/furniturepackagesusa/albums/72177720300655381
+Album 3: https://www.flickr.com/photos/furniturepackagesusa/albums/72177720309667386
+Album 4: https://www.flickr.com/photos/furniturepackagesusa/albums/72177720313910761
+Album 5: https://www.flickr.com/photos/furniturepackagesusa/albums/72157710133541282
+Album 6: https://www.flickr.com/photos/furniturepackagesusa/albums/72177720320587147
+Album 7: https://www.flickr.com/photos/furniturepackagesusa/albums/72157719863774016
+Album 8: https://www.flickr.com/photos/furniturepackagesusa/albums/72177720303794132
+Album 9: https://www.flickr.com/photos/furniturepackagesusa/albums/72157711887679752
+Album 10: https://www.flickr.com/photos/furniturepackagesusa/albums/72157710956178362
+
+STEP 8: Let Me Know
+-------------------
+Once you have all 10 JSON files, I'll combine them into the TypeScript file!
+
+OR: If you want, just do Album 1 first and show me the output to verify it works!
+
+

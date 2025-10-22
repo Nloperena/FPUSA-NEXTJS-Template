@@ -12,12 +12,15 @@ import Link from "next/link";
 
 export const HeroParallax = ({
   products,
+  onProductClick,
 }: {
   products: {
     title: string;
     link: string;
     thumbnail: string;
+    id?: string;
   }[];
+  onProductClick?: (productId: string) => void;
 }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
@@ -74,6 +77,7 @@ export const HeroParallax = ({
               product={product}
               translate={translateX}
               key={product.title}
+              onProductClick={onProductClick}
             />
           ))}
         </motion.div>
@@ -83,6 +87,7 @@ export const HeroParallax = ({
               product={product}
               translate={translateXReverse}
               key={product.title}
+              onProductClick={onProductClick}
             />
           ))}
         </motion.div>
@@ -92,6 +97,7 @@ export const HeroParallax = ({
               product={product}
               translate={translateX}
               key={product.title}
+              onProductClick={onProductClick}
             />
           ))}
         </motion.div>
@@ -116,14 +122,25 @@ export const Header = () => {
 export const ProductCard = ({
   product,
   translate,
+  onProductClick,
 }: {
   product: {
     title: string;
     link: string;
     thumbnail: string;
+    id?: string;
   };
   translate: MotionValue<number>;
+  onProductClick?: (productId: string) => void;
 }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onProductClick && product.id) {
+      onProductClick(product.id);
+    }
+  };
+
   return (
     <motion.div
       style={{
@@ -133,12 +150,10 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-96 w-[30rem] relative flex-shrink-0 cursor-pointer"
+      onClick={handleClick}
     >
-      <Link
-        href={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
+      <div className="block group-hover/product:shadow-2xl">
         <img
           src={product.thumbnail}
           height="600"
@@ -146,7 +161,7 @@ export const ProductCard = ({
           className="object-cover object-left-top absolute h-full w-full inset-0 rounded-lg"
           alt={product.title}
         />
-      </Link>
+      </div>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none rounded-lg"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
         {product.title}

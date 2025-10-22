@@ -1,0 +1,149 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║  SCRAPE ALL FLICKR ALBUMS AT ONCE - SIMPLE GUIDE            ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+📂 FILE TO EDIT: scrape-all-albums.js
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STEP 1: Open the first Flickr album
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Go to: https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+
+Wait for all photos to load (scroll down if needed)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STEP 2: Copy the complete HTML
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Press: Ctrl + U  (view page source)
+Then:  Ctrl + A  (select all)
+Then:  Ctrl + C  (copy)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STEP 3: Paste into scrape-all-albums.js
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open: scrape-all-albums.js
+
+Find ALBUM 1 section (around line 24):
+
+    {
+      // ALBUM 1 - Champions Gate Luxury
+      info: {
+        id: 'champions-gate-luxury',
+        title: 'Champions Gate Luxury Estate',
+        location: 'Champions Gate, FL',
+        category: 'highlight',
+        albumUrl: 'https://www.flickr.com/photos/...'
+      },
+      html: `
+PASTE HTML FOR ALBUM 1 HERE  ← REPLACE THIS WITH YOUR HTML
+      `
+    },
+
+Replace "PASTE HTML FOR ALBUM 1 HERE" with your copied HTML
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STEP 4: Repeat for all 11 albums
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Album 1:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+Album 2:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720316430456
+Album 3:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720300655381
+Album 4:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720309667386
+Album 5:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720313910761
+Album 6:  https://www.flickr.com/photos/furniturepackagesusa/albums/72157710133541282
+Album 7:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720320587147
+Album 8:  https://www.flickr.com/photos/furniturepackagesusa/albums/72157719863774016
+Album 9:  https://www.flickr.com/photos/furniturepackagesusa/albums/72177720303794132
+Album 10: https://www.flickr.com/photos/furniturepackagesusa/albums/72157711887679752
+Album 11: https://www.flickr.com/photos/furniturepackagesusa/albums/72157710956178362
+
+For each one:
+  1. Open the album
+  2. Ctrl+U (view source)
+  3. Ctrl+A, Ctrl+C (copy all)
+  4. Paste into the corresponding html: `` section
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  STEP 5: Run the script
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open terminal and run:
+
+    node FPUSA-NEXTJS-Template/scripts/scrape-all-albums.js
+
+
+You'll see:
+
+    ╔════════════════════════════════════════════╗
+    ║  FLICKR MULTI-ALBUM SCRAPER                ║
+    ╚════════════════════════════════════════════╝
+
+    🔍 Processing: Champions Gate Luxury Estate
+       ✓ Found 25 photos
+
+    🔍 Processing: Windsor Resort Estate
+       ✓ Found 18 photos
+
+    ... (etc)
+
+    ╔════════════════════════════════════════════╗
+    ║  ✅ SUCCESS!                               ║
+    ╚════════════════════════════════════════════╝
+
+    📁 Generated: src/data/flickr-projects-full.ts
+    📊 Projects: 11
+    📸 Total Photos: 243
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✅ DONE!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The script automatically generates:
+  src/data/flickr-projects-full.ts
+
+Your homepage will now show all real Flickr photos in the 
+parallax section with working modal galleries!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  💡 TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ You can paste just a few albums first to test
+✓ Albums without pasted HTML will be skipped automatically
+✓ The script extracts high-res photos (_b.jpg = 1024px)
+✓ Duplicates are automatically removed
+✓ Photo metadata (title, dimensions) is preserved
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ❓ TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"No photos found for Album X"
+  → Make sure you copied the COMPLETE page source
+  → It should start with <!DOCTYPE html>
+  → It should end with </html>
+  → Size should be 100,000+ characters
+
+"Syntax Error"
+  → Make sure the HTML is pasted between the backticks: html: `...`
+  → Check that you didn't accidentally delete the backticks
+
+"Only found 2-3 photos but there should be more"
+  → Scroll down on the Flickr page to load all photos
+  → Then view source and copy again
+
+

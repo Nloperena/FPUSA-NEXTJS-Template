@@ -67,6 +67,7 @@ const YouTubeThumbnail: React.FC<YouTubeThumbnailProps> = ({
         className={`${className} ${isLoading ? 'hidden' : 'block'} group-hover:scale-110 transition-transform duration-500`}
         onError={handleError}
         onLoad={handleLoad}
+        loading="lazy"
       />
     </>
   );
